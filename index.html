@@ -3,63 +3,61 @@
 
 <head>
   <meta charset="utf-8">
-  <style media="screen">
-    .axis {
-      font: 10px sans-serif;
-    }
-
-    .axis path,
-    .axis line {
-      fill: none;
-      stroke: #000;
-      shape-rendering: crispEdges;
-    }
-
-    .d3-tip {
-      line-height: 1;
-      padding: 6px;
-      background: #333;
-      color: #fff;
-      border-radius: 4px;
-      font-size: 14px;
-    }
-    /* Creates a small triangle extender for the tooltip */
-
-    .d3-tip:after {
-      box-sizing: border-box;
-      display: inline;
-      font-size: 12px;
-      width: 100%;
-      line-height: 1;
-      color: rgba(0, 0, 0, 0.8);
-      content: "\25BC";
-      position: absolute;
-      text-align: center;
-    }
-    /* Style northward tooltips specifically */
-
-    .d3-tip.n:after {
-      margin: -2px 0 0 0;
-      top: 100%;
-      left: 0;
-    }
-  </style>
   <title>Jonathan Lu | Project 1</title>
   <script src="d3.min.js" charset="utf-8"></script>
   <script src="script.js" charset="utf-8"></script>
   <script src='https://api.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.js'></script>
   <script src="d3-tip.js" charset="utf-8"></script>
-  <script src="graphscroll/graph-scroll.js" charset="utf-8"></script>
   <link href='https://api.mapbox.com/mapbox-gl-js/v0.32.1/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div id="firstVis">
-    <span id="trucksApproval"></span>
-    <span id="cartsApproval"></span>
+
+
+  <div class="container">
+    <header>
+      <h1>Jonathan Lu</h1>
+
+      <h2>SF Food Truck Permits</h2>
+      <h2>Project 01</h2>
+    </header>
+
+    <div id="firstVis">
+      <span id="trucksApproval"></span>
+      <span id="cartsApproval"></span>
+    </div>
+    <h3>Q: Permit Approval Rate?</h3>
+
+    <p>Upon initial viewing of the dataset, there were two obvious types of mobile food shops: food trucks and push carts. The former was an obvious majority, so I wanted to narrow down the data to consider only establishments which had approved health permits.
+      After putting the data on a visualization, it revealed a surprisingly large portion that held expired permits. As such, the prior idea to constrict further analysis would no longer be such a good idea.</p>
+
+    <div class="vis" id="barChart"></div>
+    <h3>Q: Favorite Foods?</h3>
+
+    <p>Taking a look at the top 25 foods supplied by food trucks, we see that they are almost all traditionally American foods. As a Davis resident where most food trucks supply different types of ethnic foods, it was interesting to see such a high demand
+      for sandwiches. In the remainder of the omitted data, there were a few instances of repeats that were errors in the data &#8211; not significant enough, however, to call for manual adjustments. Additionally, the data from these aggregations comes
+      mostly from food trucks (due to increased representation) as opposed to push carts. Let&#8217;s address that in the next vis.</p>
+    <div class="vis pies" >
+      <span id="truckPie"></span>
+      <span id="cartPie"></span>
+    </div>
+    <h3>Q: Favorite Foods per Truck Type?</h3>
+
+    <p>In the above, we can see that the former suspicion is confirmed: the food truck top foods breakdown aligns closely with the most popular foods in the last visualization. Surprisingly, the most popular push cart foods are fairly similar. I had, for some reason, thought that they would be more obscure, interesting foods. But alas, hot dogs reign supreme.</p>
+
+    <div class="vis" id='map' style='width: 770px; height: 400px;'></div>
+
+    <h3>Q: Location vs. Popularity?</h3>
+
+    <p>To determine where the most popular food trucks were, I matched the foods provided by the food vendor to the most popular 20 items offered &#8211; the more items that were matched, the bluer the dot on the map. Conversely, if fewer items were matched (that is, less or none of the top 20 items), the closer to orange the dot is. From the vis, it can be deduced that the more obscure, interesting foods are around financial district, and the standard, popular foods are farther south of downtown.</p>
+
+
+
   </div>
-  <div id="barChart"></div>
-  <div id='map' style='width: 800px; height: 500px;'></div>
+  <footer>
+    <p>Jonathan Lu  &#47;&#47;  912187836 &#47;&#47; Project 01</p>
+  </footer>
 </body>
 
 </html>
