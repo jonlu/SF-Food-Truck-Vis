@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   cartPie.call(cartPieTip);
   /**********************************/
 
-  d3.csv('http://localhost:80/foodpermits.csv', function(error, data) {
+  d3.csv('csv/foodpermits.csv', function(error, data) { //http://localhost:80
     if (error) {
       return console.log(error);
     }
@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
   map.addControl(new mapboxgl.AttributionControl({
     compact: true
   }));
-  d3.json('http://localhost:80/geo.geojson', function(error, data) {
+  d3.json('csv/geo.geojson', function(error, data) { //http://localhost:80
     if (error) return console.error(error);
     map.on('style.load', function() {
       map.addSource("trucks", {
